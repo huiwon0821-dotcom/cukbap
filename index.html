@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>쿡밥</title>
+<meta name="description" content="쿡밥 — 가톨릭대학교 학생식당 한 달 식단표. 날짜별 아침·점심·저녁 메뉴">
+<meta name="theme-color" content="#fbf6ec">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 하양이 — 하늘색 양털, 갈색 뿔, 과잠 입은 모습. images/hayangi.png 를 넣으면 그 이미지로 바뀌어요. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="lamb" viewBox="6 2 88 92">
+    <defs>
+      <radialGradient id="wool-g" cx="50%" cy="35%" r="65%">
+        <stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#eef6fd"/><stop offset="1" stop-color="#d6e8f7"/>
+      </radialGradient>
+    </defs>
+    <!-- 그림자 -->
+    <ellipse cx="50" cy="89.5" rx="17" ry="2.4" fill="#d9e4f2"/>
+    <!-- 다리 -->
+    <g fill="#fff" stroke="#28356a" stroke-width="1.5">
+      <path d="M40.5 75v10q0 2.6 2.6 2.6h4.4q2 0 2-2.2V75z"/>
+      <path d="M59.5 75v10q0 2.6-2.6 2.6h-4.4q-2 0-2-2.2V75z"/>
+    </g>
+    <!-- 팔 (흰 소매 + 남색 커프) -->
+    <g stroke="#28356a" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M37 58q-5 3-7.5 11.5q-.6 2.4 1.8 2.8q2.4.4 3.2-1.8l3.5-8z" fill="#fff"/>
+      <path d="M63 58q5 3 7.5 11.5q.6 2.4-1.8 2.8q-2.4.4-3.2-1.8l-3.5-8z" fill="#fff"/>
+    </g>
+    <path d="M30.4 67.6l4 1.3M69.6 67.6l-4 1.3" stroke="#28356a" stroke-width="1.6"/>
+    <!-- 과잠 몸통 -->
+    <path d="M37 56q13-4 26 0l1.8 20.5q-14.8 2.6-29.6 0z" fill="#1f2d63" stroke="#28356a" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M45.5 55.4q4.5 1.8 9 0l.8 21h-10.6z" fill="#fbdde3"/>
+    <path d="M45.5 55.4l-.8 21M54.5 55.4l.8 21" stroke="#fff" stroke-width="1.1"/>
+    <path d="M35.6 73.4q14.4 2.4 28.8 0M35.4 75.1q14.6 2.4 29.2 0" stroke="#fff" stroke-width=".8" fill="none"/>
+    <path d="M63 62.4a4.3 4.3 0 1 0 0 5.9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="57.3" cy="64" r=".6" fill="#fff"/><circle cx="57.4" cy="68" r=".6" fill="#fff"/><circle cx="57.5" cy="72" r=".6" fill="#fff"/>
+    <!-- 양털 (바깥선만 남기는 방식) -->
+    <g fill="#eef6fd" stroke="#28356a" stroke-width="1.6">
+      <circle cx="50" cy="15" r="12"/><circle cx="37" cy="17" r="10.5"/><circle cx="63" cy="17" r="10.5"/>
+      <circle cx="27" cy="25" r="10"/><circle cx="73" cy="25" r="10"/><circle cx="21.5" cy="36" r="9"/>
+      <circle cx="78.5" cy="36" r="9"/><circle cx="23" cy="46" r="7.5"/><circle cx="77" cy="46" r="7.5"/>
+      <circle cx="28" cy="53" r="5.5"/><circle cx="72" cy="53" r="5.5"/>
+    </g>
+    <g fill="url(#wool-g)">
+      <circle cx="50" cy="15" r="11.2"/><circle cx="37" cy="17" r="9.7"/><circle cx="63" cy="17" r="9.7"/>
+      <circle cx="27" cy="25" r="9.2"/><circle cx="73" cy="25" r="9.2"/><circle cx="21.5" cy="36" r="8.2"/>
+      <circle cx="78.5" cy="36" r="8.2"/><circle cx="23" cy="46" r="6.7"/><circle cx="77" cy="46" r="6.7"/>
+      <circle cx="28" cy="53" r="4.7"/><circle cx="72" cy="53" r="4.7"/>
+      <ellipse cx="50" cy="35" rx="27" ry="20"/>
+    </g>
+    <!-- 양털 속 작은 컬 -->
+    <g fill="none" stroke="#c4dcf1" stroke-width="1.2" stroke-linecap="round">
+      <path d="M34 13q3-2.5 5.5.5q1.5 2.5-1 3.5"/><path d="M62 11q3-2 5 1q1 2.5-1.5 3"/>
+      <path d="M71 21q3-1 4 2"/><path d="M24 27q1.5-3 4.5-2"/><path d="M45 9q2.5-1.5 4.5 0"/>
+    </g>
+    <!-- 뿔 -->
+    <g stroke="#28356a" stroke-width="1.5" stroke-linejoin="round">
+      <path transform="translate(-2.5 3) translate(22 29) scale(1.12) translate(-22 -29)" d="M22 29q-8-1-9 6q-.5 5 4 6.5q3.5 1 4.5-2q.8-2.6-1.6-3.4q-2-.5-2.2 1.3" fill="#8c7764"/>
+      <path transform="translate(2.5 3) translate(78 29) scale(1.12) translate(-78 -29)" d="M78 29q8-1 9 6q.5 5-4 6.5q-3.5 1-4.5-2q-.8-2.6 1.6-3.4q2-.5 2.2 1.3" fill="#8c7764"/>
+    </g>
+    <path d="M13.5 36q2-2.4 5-2M86.5 36q-2-2.4-5-2" stroke="#b4a28f" stroke-width="1" fill="none" stroke-linecap="round"/>
+    <!-- 얼굴 -->
+    <path d="M27.5 43q0-14 22.5-14t22.5 14q0 14.5-22.5 14.5T27.5 43z" fill="#fff" stroke="#28356a" stroke-width="1.6"/>
+    <!-- 앞머리 -->
+    <g fill="#eef6fd" stroke="#28356a" stroke-width="1.6">
+      <circle cx="33.5" cy="33" r="6"/><circle cx="66.5" cy="33" r="6"/><circle cx="42" cy="30" r="6.2"/><circle cx="58" cy="30" r="6.2"/>
+    </g>
+    <g fill="#f4f9fe"><circle cx="33.5" cy="33" r="5.2"/><circle cx="66.5" cy="33" r="5.2"/><circle cx="42" cy="30" r="5.4"/><circle cx="58" cy="30" r="5.4"/><rect x="31" y="22" width="38" height="9"/></g>
+    <!-- 이마 컬 -->
+    <path d="M51.5 37.5q-4.2.3-4.6-3.3q-.3-3.6 3.4-4.3q3.6-.5 4.7 2.6q.9 3.1-1.8 4.2" fill="#f4f9fe" stroke="#28356a" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M50.2 34.6q.2-1.4 1.6-1.2" fill="none" stroke="#28356a" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- 눈 · 볼 · 하트 코 -->
+    <ellipse cx="42" cy="44" rx="1.5" ry="2.1" fill="#1b2140"/>
+    <ellipse cx="58" cy="44" rx="1.5" ry="2.1" fill="#1b2140"/>
+    <circle cx="42.5" cy="43.2" r=".5" fill="#fff"/><circle cx="58.5" cy="43.2" r=".5" fill="#fff"/>
+    <ellipse cx="35.5" cy="48.5" rx="3.6" ry="2" fill="#fbc9d0"/>
+    <ellipse cx="64.5" cy="48.5" rx="3.6" ry="2" fill="#fbc9d0"/>
+    <path d="M50 50.6l-2.5-2.5a1.45 1.45 0 0 1 2.5-1.5 1.45 1.45 0 0 1 2.5 1.5z" fill="#f48ea0" stroke="#28356a" stroke-width="1" stroke-linejoin="round"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <span class="mascot" data-mascot></span>
+    <h1 class="logo" aria-label="쿡밥 — 가톨릭대 학식">
+      <span class="logo-word">쿡<span class="logo-bap">밥</span></span>
+      <span class="logo-sub">가톨릭대 학식 · 오늘 뭐 먹지?</span>
+    </h1>
+    <button class="cal-btn" type="button" data-open-cal aria-haspopup="dialog">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+      <span data-month-label>10월</span><span class="more-lbl"> 한눈에</span>
+    </button>
+  </div>
+</header>
+
+<div class="sample-band" data-sample hidden>
+  <div class="wrap">지금 보이는 식단은 <b>예시</b>예요. 실제 10월 식단표가 들어가면 이 띠는 사라져요.</div>
+</div>
+
+<main class="wrap">
+  <nav class="strip" aria-label="날짜 선택">
+    <div class="strip-scroll" data-strip></div>
+  </nav>
+
+  <section class="day-head">
+    <button class="nav-btn" type="button" data-prev aria-label="이전 날">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <div class="day-title">
+      <h2 data-day-title></h2>
+      <p data-day-sub></p>
+    </div>
+    <button class="nav-btn" type="button" data-next aria-label="다음 날">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </section>
+
+  <div class="tabs" role="tablist" aria-label="식사 시간" data-tabs></div>
+  <section class="meals" data-meals aria-live="polite"></section>
+</main>
+
+<footer class="foot wrap">
+  <p>식단 출처: 가톨릭대학교 공식 인스타그램 @lovecuk · 식당 사정에 따라 바뀔 수 있어요.</p>
+  <p>메뉴 사진은 이해를 돕기 위한 참고 사진이에요 (위키백과/위키미디어 공용).</p>
+</footer>
+
+<dialog class="cal" data-cal aria-label="한 달 식단 달력">
+  <div class="cal-in">
+    <div class="cal-head">
+      <h3><span data-month-label>10월</span> 식단표</h3>
+      <button type="button" class="x" data-close-cal aria-label="닫기">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <p class="cal-hint">날짜를 누르면 그날 메뉴로 가요. 칸 안 글씨는 점심 한식 메뉴예요.</p>
+    <div class="cal-week"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+    <div class="cal-grid" data-cal-grid></div>
+  </div>
+</dialog>
+
+<dialog class="sheet" data-sheet aria-labelledby="sheet-title">
+  <button type="button" class="sh-close" aria-label="닫기">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div data-sheet-body></div>
+</dialog>
+
+<script src="data.js"></script>
+<script src="photos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
