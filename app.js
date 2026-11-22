@@ -197,8 +197,8 @@
         <span class="more">자세히</span>
       </div>
       <div class="info">
-        <p class="corner-name">${esc(corner.name)}${corner.place ? `<span class="place">${esc(corner.place)}</span>` : ""}</p>
-        <h3 class="main">${esc(main)}</h3>
+        <h3 class="corner-title">${esc(corner.name)}</h3>
+        <p class="main">${esc(main)}</p>
         ${sides.length ? `<ul class="items">${sides.map((x) => { const k = kindOf(x); return `<li class="k-${k.k}"><b>${k.mark}</b>${esc(x)}</li>`; }).join("")}</ul>` : ""}
       </div>
     </article>`;
@@ -270,7 +270,7 @@
     $("[data-sheet-body]").innerHTML = `
       <div class="sh-photo photo" data-dish="${esc(main)}"><img alt="${esc(main)} 참고 사진"><div class="ph">${plateSvg}</div></div>
       <div class="sh-head">
-        <p class="sh-meta">${M.month}월 ${sel}일 (${WD[w]}) · ${s.meal.label} · ${esc(s.corner.name)}${s.corner.place ? ` · ${esc(s.corner.place)}` : ""}</p>
+        <p class="sh-meta">${M.month}월 ${sel}일 (${WD[w]}) · ${s.meal.label} · ${esc(s.corner.name)}</p>
         <h3 class="sh-title" id="sheet-title">${esc(main)}</h3>
         <p class="sh-count">${sides.length ? `함께 나오는 메뉴 ${sides.length}가지` : "단품 메뉴예요"}</p>
       </div>

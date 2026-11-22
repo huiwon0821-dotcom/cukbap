@@ -1,19 +1,21 @@
-/* 가톨릭대 학식 — 크림색 종이 + 남색 글씨 + 버터색 포인트. 식판처럼 둥근 칸. */
+/* 쿡밥 — 깨끗한 흰 접시 위에 음식 사진이 주인공.
+   밝은 웜그레이 바탕 + 흰 카드 + 차콜 글씨, 포인트는 파프리카(빨강)와 노른자(노랑) 두 가지만. */
 :root {
   color-scheme: light;
-  --bg: #fbf6ec;
-  --paper: #fffdf8;
-  --ink: #1f2c4c;
-  --ink-2: #57617a;
-  --ink-3: #969cab;
-  --line: #ece3d2;
-  --navy: #1d3a6b;
-  --sky: #e3ecf7;
-  --butter: #f6d77a;
-  --butter-soft: #fdf1cc;
-  --berry: #d0604f;
-  --berry-soft: #fbe5df;
+  --bg: #f5f4f0;          /* 바탕: 아주 옅은 웜그레이 */
+  --paper: #ffffff;       /* 카드: 흰 접시 */
+  --ink: #1f1d1a;         /* 본문: 차콜 */
+  --ink-2: #6a655d;
+  --ink-3: #a29d93;
+  --line: #e9e5dd;
+  --navy: #1f1d1a;        /* 제목·선택 상태 (차콜) */
+  --sky: #efebe4;         /* 사진 자리 */
+  --butter: #f4b23c;      /* 노른자 */
+  --butter-soft: #fdeccb;
+  --berry: #e2502c;       /* 파프리카 */
+  --berry-soft: #fde6dd;
   --leaf: #5f8f6b;
+  --shadow: 0 1px 2px rgba(31, 29, 26, .04), 0 6px 20px rgba(31, 29, 26, .06);
   --round: "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
   --pop: "Jua", "Gowun Dodum", sans-serif;
   --r: 22px;
@@ -28,9 +30,6 @@ body {
   font-size: 15.5px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
-  /* 아주 옅은 점무늬 — 공책 느낌 */
-  background-image: radial-gradient(#e9dfcb 1px, transparent 1.2px);
-  background-size: 22px 22px;
 }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 svg { display: block; }
@@ -46,18 +45,18 @@ svg { display: block; }
 .mascot svg, .mascot img { width: 100%; height: 100%; object-fit: contain; }
 .logo { display: grid; justify-items: center; gap: 1px; font-weight: 400; text-align: center; }
 .logo-word { font-family: var(--pop); font-size: 40px; line-height: 1; color: var(--navy); letter-spacing: 0.02em; }
-.logo-bap { background: linear-gradient(transparent 58%, var(--butter) 58%, var(--butter) 90%, transparent 90%); padding: 0 2px; }
+.logo-bap { color: var(--berry); }
 .logo-sub { font-family: var(--round); font-size: 12.5px; color: var(--ink-2); white-space: nowrap; }
 
 .cal-btn {
   display: inline-flex; align-items: center; gap: 7px; flex: none;
   padding: 9px 14px; border-radius: 999px;
-  background: var(--paper); border: 2px solid var(--navy); color: var(--navy);
+  background: var(--paper); border: 1px solid var(--line); color: var(--ink);
   font-family: var(--pop); font-size: 15px;
-  box-shadow: 0 3px 0 var(--navy);
-  transition: transform .12s, box-shadow .12s;
+  box-shadow: var(--shadow);
+  transition: transform .12s;
 }
-.cal-btn:active { transform: translateY(3px); box-shadow: 0 0 0 var(--navy); }
+.cal-btn:active { transform: scale(.97); }
 .cal-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 
 .sample-band { background: var(--butter-soft); border-block: 1.5px dashed #e3c260; font-size: 13.5px; color: #6d5410; padding: 7px 0; }
@@ -72,7 +71,7 @@ svg { display: block; }
 .d {
   flex: none; width: 52px; padding: 8px 0 9px; border-radius: 18px;
   display: grid; justify-items: center; gap: 2px;
-  background: var(--paper); border: 1.5px solid var(--line);
+  background: var(--paper); border: 1px solid var(--line);
   scroll-snap-align: center; position: relative;
 }
 .d .wd { font-size: 12px; color: var(--ink-3); }
@@ -80,7 +79,7 @@ svg { display: block; }
 .d .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--butter); }
 .d.empty .dot { background: transparent; }
 .d.sun .wd, .d.sun .dn, .d.hol .wd, .d.hol .dn { color: var(--berry); }
-.d.sat .wd, .d.sat .dn { color: #4b74b8; }
+.d.sat .wd, .d.sat .dn { color: #4c6fa8; }
 .d.empty .dn { opacity: .45; }
 .d.is-today::after {
   content: "오늘"; position: absolute; top: -9px; left: 50%; transform: translateX(-50%);
@@ -97,15 +96,15 @@ svg { display: block; }
 .day-title { flex: 1; text-align: center; }
 .day-title h2 { font-family: var(--pop); font-weight: 400; font-size: 24px; color: var(--navy); }
 .day-title p { font-size: 13.5px; color: var(--ink-2); min-height: 1.4em; }
-.nav-btn { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--paper); border: 1.5px solid var(--line); }
+.nav-btn { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); }
 .nav-btn svg { width: 20px; height: 20px; fill: none; stroke: var(--navy); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .nav-btn:disabled { opacity: .35; cursor: default; }
 
 /* ── 아침/점심/저녁 탭 ── */
 .tabs {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px;
-  background: var(--paper); border: 1.5px solid var(--line); border-radius: 999px; padding: 5px;
-  max-width: 420px; margin: 0 auto 18px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 5px;
+  max-width: 420px; margin: 0 auto 18px; box-shadow: var(--shadow);
 }
 .tab {
   display: flex; align-items: center; justify-content: center; gap: 6px;
@@ -127,15 +126,22 @@ svg { display: block; }
 
 .corner {
   position: relative; transition: transform .15s, box-shadow .15s;
-  background: var(--paper); border-radius: var(--r); border: 1.5px solid var(--line);
-  box-shadow: 0 3px 0 var(--line); overflow: hidden; display: flex; flex-direction: column;
+  background: var(--paper); border-radius: var(--r); border: 1px solid var(--line);
+  box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
 }
-.corner .info { padding: 12px 16px 16px; }
-.corner-name { font-size: 13px; color: var(--ink-2); display: flex; align-items: center; gap: 6px; }
-.corner-name::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--butter); border: 1.5px solid #dcb54a; }
-.place { font-size: 11.5px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 99px; padding: 0 7px; }
-.main { font-family: var(--pop); font-weight: 400; font-size: 21px; line-height: 1.25; color: var(--navy); margin: 3px 0 10px; word-break: keep-all; }
-.corner.solo .main { margin-bottom: 0; }
+.corner .info { padding: 14px 16px 16px; }
+/* 코너 이름(한식·누들·덮밥·플러스)이 카드 제목 */
+.corner-title {
+  font-family: var(--pop); font-weight: 400; font-size: 24px; line-height: 1.15; color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+}
+.corner-title::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--berry); flex: none; }
+/* 그 아래 대표 메뉴 */
+.main {
+  font-size: 16px; font-weight: 700; line-height: 1.4; color: var(--ink); word-break: keep-all;
+  margin: 6px 0 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+}
+.corner.solo .main { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
 
 .photo { position: relative; aspect-ratio: 16 / 10; background: var(--sky); overflow: hidden; }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .35s; }
@@ -148,14 +154,15 @@ svg { display: block; }
   .corner.wide { flex-direction: row; }
   .corner.wide .photo { width: 52%; flex: none; aspect-ratio: 4 / 3; }
   .corner.wide .info { padding: 22px 24px; align-self: center; }
-  .corner.wide .main { font-size: 27px; margin-bottom: 14px; }
+  .corner.wide .corner-title { font-size: 28px; }
+  .corner.wide .main { font-size: 18px; }
   .corner.wide .items li { font-size: 15px; padding: 6px 13px; }
 }
 
 /* ── 쉬는 날 ── */
 .rest {
   grid-column: 1 / -1; text-align: center; padding: 36px 16px 44px;
-  background: var(--paper); border: 1.5px dashed var(--line); border-radius: var(--r);
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--r); box-shadow: var(--shadow);
 }
 .rest .zz { width: 120px; height: 110px; margin: 0 auto 6px; position: relative; }
 .rest .zz svg, .rest .zz img { width: 100%; height: 100%; object-fit: contain; }
@@ -211,12 +218,15 @@ svg { display: block; }
 
 /* ── 카드: 반찬 목록 & 누르기 ── */
 .corner-hit { position: absolute; inset: 0; z-index: 2; border-radius: var(--r); }
-.corner:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--line); }
-.corner:has(.corner-hit:active) { transform: translateY(1px); box-shadow: 0 1px 0 var(--line); }
+.corner:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(31, 29, 26, .05), 0 14px 30px rgba(31, 29, 26, .10); }
+.corner:hover .photo img { transform: scale(1.03); }
+.photo img { transition: opacity .35s, transform .4s ease; }
+.corner:has(.corner-hit:active) { transform: translateY(0) scale(.99); }
 .photo .more {
   position: absolute; right: 10px; bottom: 10px; z-index: 1;
-  font-size: 12.5px; padding: 3px 10px 3px 11px; border-radius: 99px;
-  background: rgba(29, 58, 107, .88); color: #fff; display: inline-flex; align-items: center; gap: 3px;
+  font-size: 12.5px; padding: 4px 10px 4px 12px; border-radius: 99px;
+  background: rgba(255, 255, 255, .92); color: var(--ink); display: inline-flex; align-items: center; gap: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
 }
 .photo .more::after { content: "›"; font-size: 15px; line-height: 1; }
 
@@ -228,16 +238,18 @@ svg { display: block; }
   background: var(--k, var(--bg));
 }
 .corner.wide .items li { font-size: 15.5px; }
-.k-soup { --k: #dbe8f8; }
-.k-kimchi { --k: #f8d9d2; }
-.k-pickle { --k: #f4eaa9; }
-.k-rice { --k: #ede6d8; }
-.k-salad { --k: #d9ecd5; }
-.k-fried { --k: #f6dfbf; }
-.k-namul { --k: #dcebd9; }
-.k-sweet { --k: #f1dcec; }
-.k-side { --k: #e6e2f3; }
-.k-noodle { --k: #f3e3cf; }
+/* 반찬 종류 색: 음식 재료에서 따온 따뜻한 톤 */
+.k-soup { --k: #f3e6d6; }    /* 국물 */
+.k-kimchi { --k: #fbdcd3; }  /* 고춧가루 */
+.k-pickle { --k: #fbefc4; }  /* 단무지 */
+.k-rice { --k: #f1eee8; }    /* 쌀 */
+.k-salad { --k: #e2efd9; }   /* 채소 */
+.k-fried { --k: #fbe3c4; }   /* 튀김옷 */
+.k-namul { --k: #e4eedb; }   /* 나물 */
+.k-sweet { --k: #f7e1e6; }   /* 디저트 */
+.k-side { --k: #efe7dc; }
+.k-noodle { --k: #f6eacd; }  /* 면 */
+.items li b, .thumb .ph, .tag { color: var(--ink); }
 
 /* ── 자세히 보기 시트 ── */
 .sheet {
